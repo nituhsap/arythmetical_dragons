@@ -13,22 +13,22 @@ def annoying_input_int(message =''):
     return answer
 
 
-def game_tournament(hero, dragon_list):
-    for dragon in dragon_list:
-        print('Вышел', dragon._color, 'дракон!')
-        while dragon.is_alive() and hero.is_alive():
-            print('Вопрос:', dragon.question())
+def game_tournament(hero, entity_list):
+    for entity in entity_list:
+        print('Вышел', entity)
+        while entity.is_alive() and hero.is_alive():
+            print('Вопрос:', entity.question())
             answer = annoying_input_int('Ответ:')
 
-            if dragon.check_answer(answer):
-                hero.attack(dragon)
-                print('Верно! \n** дракон кричит от боли **')
+            if entity.check_answer(answer):
+                hero.attack(entity)
+                print('Верно! \n**', entity, 'кричит от боли **')
             else:
-                dragon.attack(hero)
+                entity.attack(hero)
                 print('Ошибка! \n** вам нанесён удар... **')
-        if dragon.is_alive():
+        if entity.is_alive():
             break
-        print('Дракон', dragon._color, 'повержен!\n')
+        print(entity, 'повержен!\n')
 
     if hero.is_alive():
         print('Поздравляем! Вы победили!')

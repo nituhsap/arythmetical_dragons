@@ -4,7 +4,12 @@ from gameunit import *
 from random import randint, choice
 
 class Enemy(Attacker):
-    pass
+    def __init__(self):
+        self._color = None
+        self._type = None
+
+    def __repr__(self):
+        return self._type + ' ' + self._color
 
 
 def generate_random_enemy():
@@ -26,6 +31,7 @@ class Dragon(Enemy):
         self._health = None
         self._attack = None
         self._color = None
+        self._type = 'дракончик'
     def set_answer(self, answer):
         self.__answer = answer
 
@@ -39,6 +45,7 @@ class GreenDragon(Dragon):
         self._health = 200
         self._attack = 10
         self._color = 'зелёный'
+        
 
     def question(self):
         x = randint(1,100)
@@ -76,43 +83,50 @@ class Magicians(Enemy):
     def __init__(self):
         self._health = None
         self._attack = None
-        self._color_hat = None
+        self._color = None
+        self._type = 'маг в шляпе'
     def set_answer(self, answer):
-        self._answer = answer
-    def check__answer(self, answer):
-        return answer == self._answer
+        self.__answer = answer
+    def check_answer(self, answer):
+        return answer == self.__answer
 
-class CrazyWitch:
-    def _init_(self):
+class CrazyWitch(Magicians):
+    def __init__(self):
         super().__init__()
         self._health = 10
         self._attack = 1
-        self. hat_color = 'серо-буро-малиновый'
+        self._color = 'серо-буро-малинового цвета'
     def question(self):
         x = randint(1,10)
         self._quest = 'угадай число'
-        self._set_answer(x)
-class CrazyFairy:
-    def _init_(self):
+        self.set_answer(x)
+        return self._quest
+
+class CrazyFairy(Magicians):
+    def __init__(self):
         super().__init__()
         self._health = 100   
         self._attack = -50
-        self. hat_color = 'радужный'
+        self._color = 'радужного цвета'
     def question(self):
         x = randint(1,10)
         self._quest = 'угадай число'
-        self._set_answer(x)
-class CunningWizard:
-    def _init_(self):     
+        self.set_answer(x)
+        return self._quest
+
+class CunningWizard(Magicians):
+    def __init__(self):     
         super().__init__()
         self._health = 300
         self._attack = 25
-        self. hat_color = 'невидимка'           
+        self._color = 'невидимка'           
     def question(self):
         x = randint(1,100)
         y = randint(1,100)
-        self._quest = 'Остаток от деления'
-        self._set_answer(x%y)
+        self._quest = 'Остаток от деления ' + str(x) + ' на ' + str(y)
+        self.set_answer(x%y)
+        return self._quest
+
 
 
 
@@ -123,4 +137,4 @@ class CunningWizard:
 # красный дракон учит анию, а чёрный -- умножению.
 
 
-enemy_types = [GreenDragon, RedDragon, BlackDragon] #,CrazyWitch, CrazyFairy, CunningWizard]
+enemy_types = [GreenDragon, RedDragon, BlackDragon, CrazyWitch, CrazyFairy, CunningWizard]
