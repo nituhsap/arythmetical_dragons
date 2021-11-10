@@ -1,6 +1,7 @@
 # coding: utf-8
 # license: GPLv3
 from gameunit import *
+from friends import *
 from random import randint, choice
 
 class Enemy(Attacker):
@@ -98,19 +99,19 @@ class CrazyWitch(Magicians):
         self._color = 'серо-буро-малинового цвета'
     def question(self):
         x = randint(1,10)
-        self._quest = 'угадай число от 1 до 10'
+        self._quest = 'угадай число'
         self.set_answer(x)
         return self._quest
 
 class CrazyFairy(Magicians):
     def __init__(self):
         super().__init__()
-        self._health = 10   
-        self._attack = -1
+        self._health = 100   
+        self._attack = -50
         self._color = 'радужного цвета'
     def question(self):
         x = randint(1,10)
-        self._quest = 'угадай число 1 до 10'
+        self._quest = 'угадай число'
         self.set_answer(x)
         return self._quest
 
@@ -129,12 +130,4 @@ class CunningWizard(Magicians):
 
 
 
-
-
-
-
-#FIXME здесь также должны быть описаны классы RedDragon и BlackDragon
-# красный дракон учит анию, а чёрный -- умножению.
-
-
-enemy_types = [GreenDragon, RedDragon, BlackDragon, CrazyWitch, CrazyFairy, CunningWizard]
+enemy_types =  [Drunk_Priest, GreenDragon, RedDragon, BlackDragon, CrazyWitch, CrazyFairy, CunningWizard]

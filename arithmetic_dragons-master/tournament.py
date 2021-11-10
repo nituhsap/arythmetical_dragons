@@ -1,6 +1,7 @@
 # coding: utf-8
 # license: GPLv3
 from enemies import *
+from friends import *
 from hero import *
 
 def annoying_input_int(message =''):
@@ -15,20 +16,32 @@ def annoying_input_int(message =''):
 
 def game_tournament(hero, entity_list):
     for entity in entity_list:
-        print('Вышел', entity)
-        while entity.is_alive() and hero.is_alive():
-            print('Вопрос:', entity.question())
+        if isinstance(entity, Drunk_Priest):
+            print('Вышел', entity)
+            print('Hello! I am in a good mood, so if thou wish some healing, answer this question:', entity.question())
             answer = annoying_input_int('Ответ:')
 
             if entity.check_answer(answer):
-                hero.attack(entity)
-                print('Верно! \n**', entity, 'кричит от боли **')
+                print('Верно! \n**', entity, 'casts some spells that sound like jibberish **')
+                entity.heal(hero)
             else:
-                entity.attack(hero)
-                print('Ошибка! \n** вам нанесён удар... **')
-        if entity.is_alive():
-            break
-        print(entity, 'повержен!\n')
+                print('Thou are wrong! \n** Or just thou do not wish to be healed? Ehehe... Good bye then!**')
+
+        else:
+            print('Вышел', entity)
+            while entity.is_alive() and hero.is_alive():
+                print('Вопрос:', entity.question())
+                answer = annoying_input_int('Ответ:')
+
+                if entity.check_answer(answer):
+                    hero.attack(entity)
+                    print('Верно! \n**', entity, 'кричит от боли **')
+                else:
+                    entity.attack(hero)
+                    print('Ошибка! \n** вам нанесён удар... **')
+            if entity.is_alive():
+                break
+            print(entity, 'повержен!\n')
 
     if hero.is_alive():
         print('Поздравляем! Вы победили!')
