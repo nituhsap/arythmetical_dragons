@@ -98,19 +98,19 @@ class CrazyWitch(Magicians):
         self._color = 'серо-буро-малинового цвета'
     def question(self):
         x = randint(1,10)
-        self._quest = 'угадай число'
+        self._quest = 'угадай число от 1 до 10'
         self.set_answer(x)
         return self._quest
 
 class CrazyFairy(Magicians):
     def __init__(self):
         super().__init__()
-        self._health = 100   
-        self._attack = -50
+        self._health = 10   
+        self._attack = -1
         self._color = 'радужного цвета'
     def question(self):
         x = randint(1,10)
-        self._quest = 'угадай число'
+        self._quest = 'угадай число 1 до 10'
         self.set_answer(x)
         return self._quest
 

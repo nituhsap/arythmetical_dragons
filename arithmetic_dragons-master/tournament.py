@@ -43,10 +43,10 @@ def start_game():
         print('Представьтесь, пожалуйста: ', end = '')
         hero = Hero(input())
 
-        dragon_number = 3
+        dragon_number = 10
         dragon_list = generate_dragon_list(dragon_number)
-        assert(len(dragon_list) == 3)
-        print('У Вас на пути', dragon_number, 'драконов!')
+        assert(len(dragon_list) == dragon_number)
+        print('У Вас на пути', dragon_number, 'персонажей!')
         game_tournament(hero, dragon_list)
 
     except EOFError:
