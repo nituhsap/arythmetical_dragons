@@ -18,14 +18,14 @@ def game_tournament(hero, entity_list):
     for entity in entity_list:
         if isinstance(entity, Drunk_Priest):
             print('Вышел', entity)
-            print('Hello! I am in a good mood, so if thou wish some healing, answer this question:', entity.question())
+            print('Привет, я сегодня в очень хорошем настроении и готов помочь тебе, если ты ответишь на мой вопрос. ', entity.question())
             answer = annoying_input_int('Ответ:')
 
             if entity.check_answer(answer):
-                print('Верно! \n**', entity, 'casts some spells that sound like jibberish **')
+                print('Верно! \n**', entity, 'кастует какие-то заклинания, звучащие, как тарабаршина**')
                 entity.heal(hero)
             else:
-                print('Thou are wrong! \n** Or just thou do not wish to be healed? Ehehe... Good bye then!**')
+                print('Ты ошибся! \n** Или ты не хочешь быть вылеченным?! ... Что ж... Тогда прощай!**')
 
         else:
             print('Вышел', entity)

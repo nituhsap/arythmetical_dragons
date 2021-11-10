@@ -19,5 +19,5 @@ class Drunk_Priest(Healer):
         
     def question(self):
 
-        self._quest = 'Tell me, how many Suns can thou see in this heavenly sky?'
+        self._quest = 'Скаж мне сколько солнц на этих райских небесах?'
         self.set_answer(1)
