@@ -47,7 +47,7 @@ class GreenDragon(Dragon):
         self.set_answer(x + y)
         return self.__quest
 class RedDragon(Dragon):
-    def _init_(self):
+    def __init__(self):
         super().__init__()
         self._health = 150
         self._attack = 20
@@ -59,7 +59,7 @@ class RedDragon(Dragon):
         self.set_answer(x-y)
         return self._quest
 class BlackDragon(Dragon):
-    def _init_(self):
+    def __init__(self):
         super().__init__()
         self._health = 250
         self._attack = 50
@@ -123,4 +123,4 @@ class CunningWizard:
 # красный дракон учит анию, а чёрный -- умножению.
 
 
-enemy_types = [GreenDragon, RedDragon, BlackDragon,CrazyWitch, CrazyFairy, CunningWizard]
+enemy_types = [GreenDragon, RedDragon, BlackDragon] #,CrazyWitch, CrazyFairy, CunningWizard]
